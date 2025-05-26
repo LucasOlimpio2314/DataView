@@ -1,1 +1,9 @@
-/* You can add global styles to this file, and also import other style files */
+nav {
+  z-index: 1051 !important;
+  position: relative;
+}
+
+.is-invalid {
+  border-color: #dc3545 !important;
+  background-color: #f8d7da !important;
+}

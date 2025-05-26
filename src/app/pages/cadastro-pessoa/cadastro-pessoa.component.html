@@ -1,0 +1,178 @@
+<div class="bg-white p-4 rounded shadow-sm">
+    <div class="mx-auto" style="max-width: 900px;">
+      <div class="bg-white p-4 rounded shadow-sm">
+        <div class="d-flex align-items-center mb-3">
+          <h4 class="fw-bold flex-grow-1">Ficha de Cadastro</h4>
+          <button class="btn btn-light ms-3" (click)="voltar()">
+            <span class="material-icons">arrow_back</span>
+          </button>
+        </div>
+        <form #formPessoa="ngForm" (ngSubmit)="salvar(formPessoa)">
+          <div class="row">
+            <div class="col-md-3 d-flex flex-column align-items-center">
+              <div class="rounded overflow-hidden mb-3" style="width:120px;height:120px;background:#eee;">
+                <!-- Foto do usuário (pode ser um input file futuramente) -->
+              </div>
+              <div class="card w-100 mb-2">
+                <div class="card-body py-2 px-3">
+                  <div class="mb-2"><strong>Mãe</strong><br><input class="form-control form-control-sm" [(ngModel)]="pessoa.mae" name="mae" placeholder="Nome da mãe"></div>
+                  <div class="mb-2"><strong>Pai</strong><br><input class="form-control form-control-sm" [(ngModel)]="pessoa.pai" name="pai" placeholder="Nome do pai"></div>
+                  <div><strong>Cônjuge</strong><br><input class="form-control form-control-sm" [(ngModel)]="pessoa.conjuge" name="conjuge" placeholder="Nome do cônjuge"></div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-9">
+              <div class="row g-2 mb-2">
+                <div class="col-md-8">
+                  <label class="form-label mb-0"><strong>Nome Completo</strong></label>
+                  <input [(ngModel)]="pessoa.nome" name="nome" required #nome="ngModel"
+                         class="form-control form-control-sm"
+                         [ngClass]="{'is-invalid': nome.invalid && (nome.dirty || nome.touched)}"
+                         placeholder="Nome completo">
+                  <div *ngIf="nome.invalid && (nome.dirty || nome.touched)" class="text-danger" style="font-size: 0.85em;">
+                    Nome é obrigatório.
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <label class="form-label mb-0"><strong>Data de Nascimento</strong></label>
+                  <input type="date" [(ngModel)]="pessoa.nascimento" name="nascimento" required #nascimento="ngModel"
+                         class="form-control form-control-sm"
+                         [ngClass]="{'is-invalid': nascimento.invalid && (nascimento.dirty || nascimento.touched)}">
+                  <div *ngIf="nascimento.invalid && (nascimento.dirty || nascimento.touched)" class="text-danger" style="font-size: 0.85em;">
+                    Data de nascimento é obrigatória.
+                  </div>
+                </div>
+              </div>
+              <div class="row g-2 mb-2">
+                <div class="col-md-4">
+                  <label class="form-label mb-0"><strong>Gênero</strong></label>
+                  <select [(ngModel)]="pessoa.genero" name="genero" required #genero="ngModel"
+                          class="form-control form-control-sm"
+                          [ngClass]="{'is-invalid': genero.invalid && (genero.dirty || genero.touched)}">
+                    <option value="" disabled selected>Selecione</option>
+                    <option value="Masculino">Homem</option>
+                    <option value="Feminino">Mulher</option>
+                  </select>
+                  <div *ngIf="genero.invalid && (genero.dirty || genero.touched)" class="text-danger" style="font-size: 0.85em;">
+                    Gênero é obrigatório.
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <label class="form-label mb-0"><strong>CPF</strong></label>
+                  <input [(ngModel)]="pessoa.cpf" name="cpf" required #cpf="ngModel"
+                         class="form-control form-control-sm"
+                         mask="000.000.000-00"
+                         [ngClass]="{'is-invalid': cpf.invalid && (cpf.dirty || cpf.touched)}"
+                         placeholder="CPF">
+                  <div *ngIf="cpf.invalid && (cpf.dirty || cpf.touched)" class="text-danger" style="font-size: 0.85em;">
+                    CPF é obrigatório.
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <label class="form-label mb-0"><strong>RG</strong></label>
+                  <input class="form-control form-control-sm" [(ngModel)]="pessoa.rg" name="rg" placeholder="RG" mask="00.000.000-0">
+                </div>
+              </div>
+              <div class="row g-2 mb-2">
+                <div class="col-md-6">
+                  <label class="form-label mb-0"><strong>Endereço</strong></label>
+                  <input class="form-control form-control-sm" [(ngModel)]="pessoa.endereco" name="endereco" laceholder="Endereço">
+                </div>
+                <div class="col-md-2">
+                  <label class="form-label mb-0"><strong>Número</strong></label>
+                  <input class="form-control form-control-sm" [(ngModel)]="pessoa.numero" name="numero" laceholder="Número">
+                </div>
+                <div class="col-md-4">
+                  <label class="form-label mb-0"><strong>Bairro</strong></label>
+                  <input class="form-control form-control-sm" [(ngModel)]="pessoa.bairro" name="bairro" placeholder="Bairro">
+                </div>
+              </div>
+              <div class="row g-2 mb-2">
+                <div class="col-md-4">
+                  <label class="form-label mb-0"><strong>Cidade</strong></label>
+                  <input class="form-control form-control-sm" [(ngModel)]="pessoa.cidade" name="cidade" placeholder="Cidade">
+                </div>
+                <div class="col-md-2">
+                  <label class="form-label mb-0"><strong>Estado</strong></label>
+                  <input class="form-control form-control-sm" [(ngModel)]="pessoa.estado" name="estado" placeholder="Estado">
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label mb-0"><strong>Cep</strong></label>
+                  <input class="form-control form-control-sm" [(ngModel)]="pessoa.cep" name="cep" placeholder="Cep" mask="00000-000">
+                </div>
+              </div>
+              
+              <div class="d-flex justify-content-end mt-4">
+                <button class="btn btn-primary" type="submit" [disabled]="formPessoa.invalid" >Salvar</button>
+              </div>
+            </div>
+          </div>
+        </form>
+        <!-- Só mostra antecedentes se estiver editando (indiceEdicao existe) -->
+<div *ngIf="indiceEdicao">
+  <div class="card mt-3">
+    <div class="card-body py-1 px-2">
+      <div class="d-flex align-items-center mb-1">
+        <strong class="flex-grow-1" style="font-size: 1rem;">Antecedentes</strong>
+        <!-- Botão para abrir o cadastro de antecedente -->
+<button class="btn btn-light btn-sm p-1" (click)="abrirCadastroAntecedente()">
+  <span class="material-icons" style="font-size:18px;">add</span>
+</button>
+
+<!-- Modal ou bloco para cadastro de antecedente -->
+<div *ngIf="mostrarCadastroAntecedente" class="modal-backdrop-custom">
+  <div class="modal-custom">
+    <app-cadastro-antecedente
+      (salvar)="adicionarAntecedente($event)"
+      (cancelar)="mostrarCadastroAntecedente = false">
+    </app-cadastro-antecedente>
+  </div>
+</div>
+
+<!-- Modal para visualizar/editar antecedente -->
+<div *ngIf="mostrarVisualizarAntecedente && antecedenteSelecionado" class="modal-backdrop-custom">
+  <div class="modal-custom">
+    <app-cadastro-antecedente
+      [antecedente]="antecedenteSelecionado"
+      (salvar)="salvarEdicaoAntecedente($event)"
+      (cancelar)="mostrarVisualizarAntecedente = false">
+    </app-cadastro-antecedente>
+  </div>
+</div>
+      </div>
+      <table class="table table-borderless align-middle mb-0" style="font-size: 0.92rem;">
+        <tbody>
+          <tr *ngFor="let ant of antecedentesPaginados; let i = index">
+            <td>
+              <div class="fw-semibold"
+                   style="font-size: 0.97rem; cursor:pointer; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; max-width:180px;"
+                   (click)="abrirVisualizarAntecedente(ant)">
+                {{ ant.descricao }}
+              </div>
+              <div class="text-muted small">{{ ant.local }}</div>
+            </td>
+            <td class="text-muted small">{{ ant.horario | mask: '00:00' }}</td>
+            <td class="text-muted small">{{ ant.data | date:'dd/MM/yyyy' }}</td>
+            <td>
+              <button class="btn btn-danger btn-sm" 
+    *ngIf="ant.id !== undefined" 
+    (click)="excluirAntecedente(ant.id)">
+    <span class="material-icons" style="font-size:16px;">delete</span>
+  </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="d-flex justify-content-center mt-1" *ngIf="pessoa.antecedentes.length > 2">
+        <button class="btn btn-link btn-sm py-0 px-1" (click)="paginaAnteriorAntecedentes()" [disabled]="antecedentesPagina === 0">&lt;</button>
+        <span class="mx-1" style="font-size: 0.9rem;">{{ antecedentesPagina + 1 }} / {{ totalPaginasAntecedentes }}</span>
+        <button class="btn btn-link btn-sm py-0 px-1" (click)="proximaPaginaAntecedentes()" [disabled]="(antecedentesPagina + 1) * 2 >= pessoa.antecedentes.length">&gt;</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+      </div>
+    </div>
+  </div>
+    

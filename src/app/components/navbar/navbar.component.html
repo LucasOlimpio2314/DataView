@@ -1,0 +1,35 @@
+<nav class="d-flex flex-column bg-dark text-white vh-100 p-3" style="width:220px; z-index:1051; position:relative;">
+  <h4 class="mb-4">DataView</h4>
+  <ul class="nav nav-pills flex-column mb-auto">
+    <li class="nav-item mb-2">
+      <button type="button"
+              class="nav-link text-white d-flex align-items-center"
+              style="cursor:pointer; background:none; border:none; width:100%; text-align:left;"
+              (click)="irParaArquivos()">
+        <span class="material-icons me-2">folder</span>
+        Arquivo
+      </button>
+    </li>
+    <li class="nav-item mb-2">
+      <button type="button"
+              class="nav-link text-white d-flex align-items-center"
+              style="cursor:pointer; background:none; border:none; width:100%; text-align:left;"
+              (click)="irParaPessoas()">
+        <span class="material-icons me-2">person</span>
+        Pessoas
+      </button>
+    </li>
+    <li class="nav-item mb-2">
+      <a class="nav-link text-white d-flex align-items-center" style="cursor:pointer;">
+        <span class="material-icons me-2">settings</span>
+        Configurações
+      </a>
+    </li>
+  </ul>
+  <div class="mt-auto pt-3 border-top">
+    <a class="nav-link text-white d-flex align-items-center" style="cursor:pointer;">
+      <span class="material-icons me-2">logout</span>
+      Deslogar
+    </a>
+  </div>
+</nav>

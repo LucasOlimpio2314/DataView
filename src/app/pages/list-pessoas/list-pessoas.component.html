@@ -1,0 +1,59 @@
+<div class="container my-5" style="max-width: 900px;">
+  <div class="bg-white p-4 rounded shadow-sm">
+    <h4 class="mb-4 fw-bold">Lista de Pessoas</h4>
+    <div class="d-flex align-items-center mb-3">
+      <a class="btn btn-light btn-sm shadow-sm d-flex align-items-center fw-bold me-3"
+         style="border-radius: 12px;" routerLink="/cadastro">
+        <span class="me-2">Pessoas</span>
+        <span class="material-icons">add</span>
+      </a>
+      <div class="flex-grow-1">
+        <div class="input-group">
+          <span class="input-group-text bg-white border-end-0">
+            <span class="material-icons">search</span>
+          </span>
+          <input type="text"
+                 class="form-control border-start-0"
+                 placeholder="Informe o nome"
+                 [(ngModel)]="filtroNome"
+                 (ngModelChange)="onFiltroNomeChange()">
+        </div>
+      </div>
+    </div>
+    <div class="table-responsive">
+      <table class="table table-bordered align-middle">
+        <thead class="table-dark">
+          <tr>
+            <th>Nome Completo</th>
+            <th>CPF</th>
+            <th>Data de Nascimento</th>
+            <th>Gênero</th>
+            <th>Ações</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let pessoa of pessoasPaginadas">
+            <td>
+              <a [routerLink]="['/cadastro', pessoa.id]" style="cursor:pointer; text-decoration:underline;">
+                {{ pessoa.nome }}
+              </a>
+            </td>
+            <td>{{ pessoa.cpf | mask: '000.000.000-00' }}</td>
+            <td>{{ pessoa.nascimento | date:'yyyy-MM-dd' }}</td>
+            <td>{{ pessoa.genero }}</td>
+            <td>
+              <button class="btn btn-danger btn-sm" (click)="excluirPessoa(pessoa.id)">
+                <span class="material-icons" style="font-size:16px;">delete</span>
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="d-flex justify-content-center mt-2" *ngIf="totalPaginas > 1">
+      <button class="btn btn-link btn-sm" (click)="paginaAnterior()" [disabled]="paginaAtual === 0">&lt;</button>
+      <span class="mx-2">{{ paginaAtual + 1 }} / {{ totalPaginas }}</span>
+      <button class="btn btn-link btn-sm" (click)="proximaPagina()" [disabled]="paginaAtual >= totalPaginas - 1">&gt;</button>
+    </div>
+  </div>
+</div>

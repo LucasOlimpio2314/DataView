@@ -1,0 +1,27 @@
+<div class="p-3">
+  <div *ngIf="novoAntecedente">
+    <div class="mb-2">
+      <label>Local</label>
+      <input class="form-control" [(ngModel)]="novoAntecedente.local" placeholder="Local">
+    </div>
+    <div class="mb-2">
+      <label>Horário</label>
+      <input class="form-control form-control-sm"
+             [(ngModel)]="novoAntecedente.horario"
+             placeholder="Horário"
+             mask="00:00">
+    </div>
+    <div class="mb-2">
+      <label>Descrição</label>
+      <input class="form-control" [(ngModel)]="novoAntecedente.descricao" placeholder="Descrição">
+    </div>
+    <div class="mb-2">
+      <label>Data</label>
+      <input class="form-control" type="date" [(ngModel)]="novoAntecedente.data">
+    </div>
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-primary btn-sm me-2" (click)="onSalvar()">Salvar</button>
+      <button class="btn btn-secondary btn-sm" (click)="onCancelar()">Cancelar</button>
+    </div>
+  </div>
+</div>

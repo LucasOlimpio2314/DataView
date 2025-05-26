@@ -1,0 +1,30 @@
+/* filepath: /home/barreto/Arquivos_2025/Projetos/DataViewNew/src/app/pages/arquivos/arquivos.component.scss */
+.container-arquivos {
+  margin: 32px 0 0 0;
+  padding-left: 16px;
+}
+
+.d-flex {
+  display: flex;
+}
+
+.gap-4 {
+  gap: 32px;
+}
+
+.card-arquivo {
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.10);
+  padding: 20px 32px;
+  min-width: 140px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+.material-icons {
+  font-size: 22px;
+}
