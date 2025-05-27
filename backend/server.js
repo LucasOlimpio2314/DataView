@@ -11,7 +11,7 @@ app.use(bodyParser.json());
 const db = mysql.createConnection({
   host: 'localhost',
   user: 'serve.test',
-  password: '@Olimpio123773',
+  password: 'SENHA-DO-BANCO',
   database: 'DataView'
 });
 
