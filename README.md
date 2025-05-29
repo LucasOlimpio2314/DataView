@@ -45,7 +45,7 @@ npm install
 
 3. **Execute o servidor de desenvolvimento:**
 ```bash
-node backend/serve.js
+node backend/server.js
 ```
 ```bash
 ng serve
@@ -73,3 +73,10 @@ ng serve
 ## 📄 Licença
 
 Este projeto é acadêmico e foi desenvolvido como Trabalho de Conclusão de Curso (TCC) para o curso de **Ciência da Computação** da Universidade Nove de Julho - UNINOVE.
+
+## 🎥 Demonstração
+
+Você pode assistir a um vídeo demonstrativo da aplicação rodando no link abaixo:
+
+👉 [Clique aqui para ver o vídeo no Google Drive](https://drive.google.com/file/d/1LBqdmpUO1yzr8KHqYop6U5zIccoP80P1/view?usp=drive_link)
+
